@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const textInput = document.getElementById("text");
+    const textInput = document.getElementById("message"); // كان اسمه text في HTML بس هو message
     const shiftInput = document.getElementById("shift");
     const output = document.getElementById("output");
-    const aiAnalysis = document.getElementById("aiAnalysis");
-    const chatbot = document.getElementById("chatbot");
 
     document.getElementById("encrypt").addEventListener("click", function () {
         const encryptedText = caesarCipher(textInput.value, parseInt(shiftInput.value));
         output.textContent = encryptedText;
         output.style.opacity = 1;
-        analyzeMessage(textInput.value);
     });
 
     document.getElementById("decrypt").addEventListener("click", function () {
@@ -22,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         textInput.value = "";
         output.textContent = "";
         output.style.opacity = 0;
-        aiAnalysis.style.display = "none";
-        chatbot.style.display = "none";
     });
 
     function caesarCipher(text, shift) {
@@ -32,19 +27,4 @@ document.addEventListener("DOMContentLoaded", function () {
             return String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26 + 26) % 26 + base);
         });
     }
-
-    function analyzeMessage(text) {
-        aiAnalysis.style.display = "block";
-        let positivity = Math.random() * 100;
-        aiAnalysis.innerHTML = <strong>AI Analysis:</strong> This message has a positivity score of ${positivity.toFixed(2)}%.;
-    }
-
-    document.getElementById("chatbotBtn").addEventListener("click", function () {
-        chatbot.style.display = "block";
-        chatbot.innerHTML = <strong>Chatbot:</strong> How can I assist you with encryption today?;
-    });
-
-    document.getElementById("suggestText").addEventListener("click", function () {
-        textInput.value = "You are amazing and your smile is beautiful!";
-    });
 });
