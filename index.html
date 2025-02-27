@@ -14,13 +14,21 @@
         <br>
         <label for="shift">Shift:</label>
         <input type="number" id="shift" value="3">
+        
         <div class="buttons">
-            <button onclick="encryptMessage()">Encrypt</button>
-            <button onclick="decryptMessage()">Decrypt</button>
-            <button onclick="copyToClipboard()">Copy</button>
-            <button onclick="clearFields()">Clear</button>
+            <button id="encrypt">Encrypt</button>
+            <button id="decrypt">Decrypt</button>
+            <button id="copy">Copy</button>
+            <button id="clear">Clear</button>
         </div>
+
         <p id="output"></p>
+
+        <!-- إضافة الذكاء الاصطناعي -->
+        <div id="aiAnalysis" style="display: none;"></div>
+        <button id="chatbotBtn">Chat with AI</button>
+        <div id="chatbot" style="display: none;"></div>
+
     </div>
     <script src="script.js"></script>
 </body>
